@@ -1,18 +1,18 @@
 import React from 'react';
 
 const Button = props => {
-    const handleClick = () => {
-        props.setClicked(props.char);
-    }
+  const handleClick = () => {
+    props.setClicked(props.char);
+  }
 
-    return (
-        <div 
-            className={`button ${props.name}`}
-            onClick={handleClick}
-            >
-                {props.char}
-            </div>
-    )
+  return (
+    <div 
+      className={`button ${props.name}`}
+      onClick={handleClick}
+      >
+        {props.char}
+    </div>
+  )
 }
 
 export default Button;
