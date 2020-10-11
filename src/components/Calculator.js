@@ -20,7 +20,7 @@ const Calculator = () => {
     operator === "+" && nums.reduce((a, b) => a + b);
   }
 
-  console.log(clicked);
+  console.log(parseInt(clicked));
   return (
     <div className="calculator">
       <Screen clicked={clicked} />
@@ -28,6 +28,7 @@ const Calculator = () => {
         name="AC"
         char="A/C"
         nums={nums}
+        handleClick={setClicked}
       />
       <Button 
         name="pos-neg"
