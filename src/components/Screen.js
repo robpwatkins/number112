@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Screen = () => {
+const Screen = props => {
     return (
-        <div className="screen"></div>
+        <div className="screen">
+            {props.clicked}
+        </div>
     )
 }
 

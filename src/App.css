@@ -19,11 +19,18 @@
   grid-template-columns: repeat(4, 1fr);
   color: #282c34;
   background: whitesmoke;
+  cursor: default;
 }
 
 .screen {
-  background: rgb(71, 71, 71);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   grid-column: 1 / 5;
+  padding: 0 23px 3px 0;
+  font-size: 50px;
+  color: whitesmoke;
+  background: rgb(71, 71, 71);
 }
 
 .button {
@@ -36,4 +43,17 @@
 
 .AC, .pos-neg, .modulo {
   background: rgb(117, 117, 117);
+}
+
+.operator {
+  background: orange;
+}
+
+.num {
+  background: darkgray;
+}
+
+.zero {
+  grid-column: 1 / 3;
+  background: darkgray;
 }
