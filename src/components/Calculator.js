@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Screen from './Screen';
 import Button from './Button';
 
 const Calculator = () => {
+    const [clicked, setClicked] = useState(null);
+
+    console.log(clicked);
     return (
         <div className="calculator">
-            <Button name="1" />
+            <Screen />
+            <Button 
+                name="A/C"
+                setClicked={setClicked}
+                />
         </div>
     )
 }

@@ -2,12 +2,12 @@ import React from 'react';
 
 const Button = props => {
     const handleClick = () => {
-        console.log(props.name)
+        props.setClicked(props.name);
     }
 
     return (
         <div 
-            className={props.name}
+            className={`button ${props.name}`}
             onClick={handleClick}
             >
                 {props.name}
