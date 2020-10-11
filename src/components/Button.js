@@ -10,7 +10,7 @@ const Button = props => {
             className={`button ${props.name}`}
             onClick={handleClick}
             >
-                {props.name}
+                {props.char}
             </div>
     )
 }

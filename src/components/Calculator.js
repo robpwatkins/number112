@@ -10,7 +10,18 @@ const Calculator = () => {
         <div className="calculator">
             <Screen />
             <Button 
-                name="A/C"
+                name="AC"
+                char="A/C"
+                setClicked={setClicked}
+                />
+            <Button 
+                name="pos-neg"
+                char="±"
+                setClicked={setClicked}
+                />
+            <Button 
+                name="modulo"
+                char="%"
                 setClicked={setClicked}
                 />
         </div>
