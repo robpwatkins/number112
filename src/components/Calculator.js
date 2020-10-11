@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Screen from './Screen';
 import Button from './Button';
 
@@ -9,15 +9,18 @@ const Calculator = () => {
     setClicked(null);
   }
 
+  useEffect(() => {
+    clicked === "A/C" && clear();
+  })
+
   console.log(clicked);
   return (
     <div className="calculator">
       <Screen clicked={clicked} />
       <Button 
-          name="AC"
+        name="AC"
         char="A/C"
         setClicked={setClicked}
-        handleClick={clear}
       />
       <Button 
         name="pos-neg"
