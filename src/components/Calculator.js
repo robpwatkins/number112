@@ -14,13 +14,14 @@ const Calculator = () => {
 
   useEffect(() => {
     clicked === "A/C" && clear();
-  })
+    parseInt(clicked) !== NaN && setNums([...nums, parseInt(clicked)]);
+  }, [clicked])
 
   const operatorClicked = () => {
     operator === "+" && nums.reduce((a, b) => a + b);
   }
 
-  console.log(parseInt(clicked));
+  console.log(nums);
   return (
     <div className="calculator">
       <Screen clicked={clicked} />
