@@ -13,8 +13,8 @@ const Calculator = () => {
   }
 
   useEffect(() => {
-    clicked === "A/C" && clear();
-    parseInt(clicked) !== NaN && setNums([...nums, parseInt(clicked)]);
+    // clicked === "A/C" && clear();
+    setNums(nums => [...nums, clicked]);
   }, [clicked])
 
   const operatorClicked = () => {
@@ -49,7 +49,6 @@ const Calculator = () => {
       <Button
         name="num"
         char="7"
-        nums={nums}
         handleClick={setClicked}
       />
       <Button
