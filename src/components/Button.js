@@ -1,14 +1,14 @@
 import React from 'react';
 
 const Button = props => {
-  const handleClick = () => {
-    props.handleClick(props.char);
-  }
+  // const handleClick = () => {
+  //   props.handleClick(props.char);
+  // }
 
   return (
     <div 
       className={`button ${props.name}`}
-      onClick={handleClick}
+      onClick={() => props.handleClick(props.char)}
       >
         {props.char}
     </div>
