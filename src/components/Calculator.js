@@ -4,6 +4,9 @@ import Button from './Button';
 
 const Calculator = () => {
   const [clicked, setClicked] = useState(null);
+  const [nums, setNums] = useState([]);
+  const [operators, setOperators] = useState([]);
+  const [currentTotal, setCurrentTotal] = useState(null);
 
   const clear = () => {
     setClicked(null);
@@ -13,14 +16,18 @@ const Calculator = () => {
     clicked === "A/C" && clear();
   })
 
-  console.log(clicked);
+  const operatorClicked = () => {
+
+  }
+
+  console.log(nums);
   return (
     <div className="calculator">
       <Screen clicked={clicked} />
       <Button 
         name="AC"
         char="A/C"
-        setClicked={setClicked}
+        nums={nums}
       />
       <Button 
         name="pos-neg"
@@ -40,7 +47,7 @@ const Calculator = () => {
       <Button
         name="num"
         char="7"
-        setClicked={setClicked}
+        handleClick={setNums}
       />
       <Button
         name="num"
