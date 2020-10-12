@@ -50,6 +50,7 @@
 
 .num {
   background: darkgray;
+  border: 1px solid rgb(151, 151, 151);
 }
 
 .zero {
