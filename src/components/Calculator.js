@@ -17,12 +17,13 @@ const Calculator = () => {
   }
 
   const calculatorClicked = () => {
-    
+    console.log(nums);
   }
 
-  console.log(nums);
   return (
-    <div className="calculator">
+    <div className="calculator"
+      onClick={calculatorClicked}
+    >
       <Screen clicked={clicked} />
       <Button 
         name="AC"
