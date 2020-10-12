@@ -9,16 +9,15 @@ const Calculator = () => {
   const [currentTotal, setCurrentTotal] = useState(null);
 
   const clear = () => {
-    setClicked(null);
+    setNums([]);
   }
-
-  useEffect(() => {
-    // clicked === "A/C" && clear();
-    setNums(nums => [...nums, clicked]);
-  }, [clicked])
 
   const operatorClicked = () => {
     operator === "+" && nums.reduce((a, b) => a + b);
+  }
+
+  const calculatorClicked = () => {
+    
   }
 
   console.log(nums);
@@ -29,7 +28,7 @@ const Calculator = () => {
         name="AC"
         char="A/C"
         nums={nums}
-        handleClick={setClicked}
+        handleClick={clear}
       />
       <Button 
         name="pos-neg"
@@ -49,7 +48,8 @@ const Calculator = () => {
       <Button
         name="num"
         char="7"
-        handleClick={setClicked}
+        nums={nums}
+        handleClick={setNums}
       />
       <Button
         name="num"
