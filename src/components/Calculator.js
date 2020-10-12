@@ -16,14 +16,9 @@ const Calculator = () => {
     operator === "+" && nums.reduce((a, b) => a + b);
   }
 
-  const calculatorClicked = () => {
-    console.log(nums);
-  }
-
+  console.log(nums);
   return (
-    <div className="calculator"
-      onClick={calculatorClicked}
-    >
+    <div className="calculator">
       <Screen clicked={clicked} />
       <Button 
         name="AC"
