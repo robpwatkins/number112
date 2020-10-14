@@ -16,7 +16,10 @@ const Calculator = () => {
     const char = event.currentTarget.innerHTML;
     if (!isNaN(parseInt(char))) {
       setNums(nums => nums = [...nums, parseInt(char)]);
-    }
+    } else
+    if (char === '/' || 'x' || '+' || '-') {
+        console.log('heyoo');
+      }
   }
 
   const operatorClicked = () => {
