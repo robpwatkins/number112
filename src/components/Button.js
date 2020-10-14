@@ -8,7 +8,7 @@ const Button = props => {
   return (
     <div 
       className={`button ${props.name}`}
-      onClick={() => props.handleClick()}
+      onClick={event => props.handleClick(event)}
       >
         {props.char}
     </div>

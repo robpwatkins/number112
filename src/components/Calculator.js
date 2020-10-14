@@ -13,7 +13,7 @@ const Calculator = () => {
   }
 
   const handleClick = event => {
-    console.log(event);
+    console.log(event.currentTarget.innerHTML);
   }
 
   const operatorClicked = () => {
@@ -32,93 +32,93 @@ const Calculator = () => {
       <Button 
         name="pos-neg"
         char="±"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button 
         name="modulo"
         char="%"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="operator"
         char="/"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="7"
         nums={nums}
-        handleClick={setNums}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="8"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="9"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="operator"
         char="x"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="4"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="5"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="6"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="operator"
         char="-"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="1"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="2"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="3"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="operator"
         char="+"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="zero"
         char="0"
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="num"
         char="."
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
       <Button
         name="operator"
         char="="
-        handleClick={setClicked}
+        handleClick={handleClick}
       />
     </div>
   )
