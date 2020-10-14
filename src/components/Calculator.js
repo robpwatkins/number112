@@ -13,7 +13,8 @@ const Calculator = () => {
   }
 
   const handleClick = event => {
-    console.log(event.currentTarget.innerHTML);
+    const char = event.currentTarget.innerHTML;
+    console.log(parseInt(char));
   }
 
   const operatorClicked = () => {
