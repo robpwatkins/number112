@@ -14,7 +14,9 @@ const Calculator = () => {
 
   const handleClick = event => {
     const char = event.currentTarget.innerHTML;
-    console.log(parseInt(char));
+    if (isNaN(parseInt(char))) {
+      console.log(char);
+    }
   }
 
   const operatorClicked = () => {
