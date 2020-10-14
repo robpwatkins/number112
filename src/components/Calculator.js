@@ -12,11 +12,14 @@ const Calculator = () => {
     setNums([]);
   }
 
+  const handleClick = event => {
+    console.log(event);
+  }
+
   const operatorClicked = () => {
     operator === "+" && nums.reduce((a, b) => a + b);
   }
 
-  console.log(nums);
   return (
     <div className="calculator">
       <Screen clicked={clicked} />
@@ -24,7 +27,7 @@ const Calculator = () => {
         name="AC"
         char="A/C"
         nums={nums}
-        handleClick={clear}
+        handleClick={handleClick}
       />
       <Button 
         name="pos-neg"

@@ -43,11 +43,13 @@
 .AC, .pos-neg, .modulo {
   background: rgb(117, 117, 117);
   border: 1px solid rgb(95, 95, 95);
+  border-top: none;
 }
 
 .operator {
   background: orange;
   border: 1px solid rgb(233, 151, 0);
+  border-left: none;
 }
 
 .num {
