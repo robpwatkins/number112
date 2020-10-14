@@ -14,8 +14,8 @@ const Calculator = () => {
 
   const handleClick = event => {
     const char = event.currentTarget.innerHTML;
-    if (isNaN(parseInt(char))) {
-      console.log(char);
+    if (!isNaN(parseInt(char))) {
+      setNums(nums => nums = [...nums, parseInt(char)]);
     }
   }
 
@@ -23,6 +23,7 @@ const Calculator = () => {
     operator === "+" && nums.reduce((a, b) => a + b);
   }
 
+  console.log(nums);
   return (
     <div className="calculator">
       <Screen clicked={clicked} />
