@@ -21,8 +21,10 @@ const Calculator = () => {
     const char = event.currentTarget.innerHTML;
     if (char === 'A/C') clear();
     else if (char === '±') plusOrMinus();
-    else if (!isNaN(char)) setNums([...nums, Number(char)]);
-    else setOperator(char);
+    else if (!isNaN(char)) {
+      setNums([...nums, Number(char)]);
+      !currentTotal && setCurrentTotal(Number(char));
+    } else setOperator(char);
   }
 
   console.log(nums, operator, currentTotal);
