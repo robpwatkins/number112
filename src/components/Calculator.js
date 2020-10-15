@@ -25,11 +25,7 @@ const Calculator = () => {
     else setOperator(char);
   }
 
-  const operatorClicked = () => {
-    operator === "+" && nums.reduce((a, b) => a + b);
-  }
-
-  console.log(nums, operator);
+  console.log(nums, operator, currentTotal);
   return (
     <div className="calculator">
       <Screen clicked={clicked} />
