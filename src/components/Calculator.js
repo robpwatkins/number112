@@ -10,6 +10,7 @@ const Calculator = () => {
 
   const clear = () => {
     setNums([]);
+    setCurrentTotal(null);
     console.log('clear');
   }
 
