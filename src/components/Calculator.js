@@ -21,7 +21,7 @@ const Calculator = () => {
     const char = event.currentTarget.innerHTML;
     char === 'A/C' && clear();
     char === '±' && plusOrMinus();
-    console.log(typeof parseInt(char))
+    !isNaN(char) && setNums([...nums, Number(char)]);
     // if (!isNaN(parseInt(char))) {
     //   setNums(nums => nums = [...nums, parseInt(char)]);
     // } else
