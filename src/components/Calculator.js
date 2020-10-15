@@ -30,7 +30,7 @@ const Calculator = () => {
   console.log(nums, operator, currentTotal);
   return (
     <div className="calculator">
-      <Screen clicked={clicked} />
+      <Screen total={currentTotal} />
       <Button 
         name="AC"
         char="A/C"
