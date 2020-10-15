@@ -19,22 +19,17 @@ const Calculator = () => {
 
   const handleClick = event => {
     const char = event.currentTarget.innerHTML;
-    char === 'A/C' && clear();
-    char === '±' && plusOrMinus();
-    !isNaN(char) && setNums([...nums, Number(char)]);
-    // if (!isNaN(parseInt(char))) {
-    //   setNums(nums => nums = [...nums, parseInt(char)]);
-    // } else
-    // if (char === '/' || 'x' || '+' || '-') {
-    //     console.log('heyoo');
-    //   }
+    if (char === 'A/C') clear();
+    else if (char === '±') plusOrMinus();
+    else if (!isNaN(char)) setNums([...nums, Number(char)]);
+    else setOperator(char);
   }
 
   const operatorClicked = () => {
     operator === "+" && nums.reduce((a, b) => a + b);
   }
 
-  console.log(nums);
+  console.log(nums, operator);
   return (
     <div className="calculator">
       <Screen clicked={clicked} />
