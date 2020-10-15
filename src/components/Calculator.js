@@ -28,7 +28,7 @@ const Calculator = () => {
     } else setOperator(char);
   }
 
-  console.log(nums, operator, currentTotal);
+  console.log(nums.join(''));
   return (
     <div className="calculator">
       <Screen total={currentTotal} />
