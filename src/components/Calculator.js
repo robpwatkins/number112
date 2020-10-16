@@ -6,11 +6,9 @@ const Calculator = () => {
   // const [clicked, setClicked] = useState(null);
   const [nums, setNums] = useState([]);
   const [operator, setOperator] = useState(null);
-  const [currentTotal, setCurrentTotal] = useState(null);
 
   const clear = () => {
     setNums([]);
-    setCurrentTotal(null);
     setOperator(null);
     console.log('clear');
   }
@@ -26,7 +24,6 @@ const Calculator = () => {
     else if (operator === 'x') newNums = nums.reduce((a, b) => a * b);
     else newNums = nums.reduce((a, b) => a / b);
     setNums([newNums]);
-    setCurrentTotal(newNums);
   }
 
   const handleClick = event => {
@@ -37,7 +34,6 @@ const Calculator = () => {
       if (!operator) {
         let newNums = Number(nums + Number(char));
         setNums([newNums]);
-        setCurrentTotal(newNums);
       } else setNums([...nums, Number(char)]);
     } else {
       setOperator(char);
