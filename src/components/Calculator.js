@@ -18,6 +18,8 @@ const Calculator = () => {
   }
 
   const equals = () => {
+    let tempNums = [...nums, currentNum];
+    console.log(tempNums.reduce((a, b) => a + b));
     if (operator === '+') setNums([nums.reduce((a, b) => a + b)]);
     // else if (operator === '-') setNums([nums.reduce((a, b) => a - b)]);
     // else if (operator === 'x') setNums([nums.reduce((a, b) => a * b)]);
@@ -33,8 +35,6 @@ const Calculator = () => {
         setCurrentNum([Number(currentNum + Number(char))]);
       // } else setNums([...nums, Number(char)]);
     } else {
-      let tempNums = [...nums, currentNum];
-      console.log(tempNums.reduce((a, b) => a + b));
       // setOperator(char);
       // equals();
     }
