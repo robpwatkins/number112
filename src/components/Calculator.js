@@ -6,10 +6,12 @@ const Calculator = () => {
   const [nums, setNums] = useState([]);
   const [operator, setOperator] = useState(null);
   const [currentNum, setCurrentNum] = useState(null);
+  const [screeNums, setScreenNums] = useState(null);
 
   const clear = () => {
     setNums([]);
     setOperator(null);
+    setCurrentNum(null);
     console.log('clear');
   }
 
@@ -18,11 +20,13 @@ const Calculator = () => {
   }
 
   const equals = () => {
-    if (nums.length === 0) setNums([Number(currentNum)]);
-    if (operator === '+') setNums([nums.reduce((a, b) => a + b)]);
-    // else if (operator === '-') setNums([nums.reduce((a, b) => a - b)]);
-    // else if (operator === 'x') setNums([nums.reduce((a, b) => a * b)]);
-    // else setNums([nums.reduce((a, b) => a / b)]);
+    let tempNums = [...nums, Number(currentNum)]
+    if (operator === '+') tempNums = tempNums.reduce((a, b) => a + b);
+    else if (operator === '-') tempNums = tempNums.reduce((a, b) => a - b);
+    else if (operator === 'x') tempNums = tempNums.reduce((a, b) => a * b);
+    else tempNums = tempNums.reduce((a, b) => a / b);
+    setNums([tempNums]);
+    setCurrentNum(null);
   }
 
   const handleClick = event => {
@@ -30,19 +34,36 @@ const Calculator = () => {
     if (char === 'A/C') clear();
     else if (char === '±') plusOrMinus();
     else if (!isNaN(char)) {
-      if (!currentNum) {
-        setCurrentNum(char);
-      } else setCurrentNum(currentNum + char);
-    } else {
+      if (!currentNum) setCurrentNum(char);
+      else setCurrentNum(currentNum + char);
+    }
+    else {
       setOperator(char);
       equals();
     }
   }
 
+  // const handleClick = event => {
+  //   const char = event.currentTarget.innerHTML;
+  //   if (char === 'A/C') clear();
+  //   else if (char === '±') plusOrMinus();
+  //   else if (!isNaN(char)) {
+  //     if (!operator) {
+  //       if (!currentNum) setCurrentNum(char);
+  //       else setCurrentNum(currentNum + char);
+  //     } else {
+  //       setNums([Number(currentNum)]);
+  //     }
+  //   } else {
+  //     setOperator(char);
+  //     equals();
+  //   }
+  // }
+
   console.log(currentNum, nums);
   return (
     <div className="calculator">
-      <Screen num={nums[nums.length - 1]} />
+      <Screen num={currentNum} />
       <Button 
         name="AC"
         char="A/C"
