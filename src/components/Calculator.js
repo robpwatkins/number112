@@ -26,6 +26,7 @@ const Calculator = () => {
     else if (operator === 'x') tempNums = tempNums.reduce((a, b) => a * b);
     else tempNums = tempNums.reduce((a, b) => a / b);
     setNums([tempNums]);
+    setScreenNums(tempNums);
     setCurrentNum(null);
   }
 
@@ -34,8 +35,14 @@ const Calculator = () => {
     if (char === 'A/C') clear();
     else if (char === '±') plusOrMinus();
     else if (!isNaN(char)) {
-      if (!currentNum) setCurrentNum(char);
-      else setCurrentNum(currentNum + char);
+      if (!currentNum) {
+        setCurrentNum(char);
+        setScreenNums(char);
+      }
+      else {
+        setCurrentNum(currentNum + char);
+        setScreenNums(currentNum + char);
+      }
     }
     else {
       setOperator(char);
@@ -63,7 +70,7 @@ const Calculator = () => {
   console.log(currentNum, nums);
   return (
     <div className="calculator">
-      <Screen num={currentNum} />
+      <Screen num={screeNums} />
       <Button 
         name="AC"
         char="A/C"
