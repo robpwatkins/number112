@@ -20,12 +20,13 @@ const Calculator = () => {
   }
 
   const equals = () => {
-    if (operator === '+') {
-      let newNums = nums.reduce((a, b) => a + b);
-      console.log(newNums);
-      setNums(newNums);
-      setCurrentTotal(newNums);
-    } 
+    let newNums;
+    if (operator === '+') newNums = nums.reduce((a, b) => a + b);
+    else if (operator === '-') newNums = nums.reduce((a, b) => a - b);
+    else if (operator === 'x') newNums = nums.reduce((a, b) => a * b);
+    else newNums = nums.reduce((a, b) => a / b);
+    setNums([newNums]);
+    setCurrentTotal(newNums);
   }
 
   const handleClick = event => {
@@ -47,7 +48,7 @@ const Calculator = () => {
   console.log(nums);
   return (
     <div className="calculator">
-      <Screen total={currentTotal} />
+      <Screen num={nums[nums.length - 1]} />
       <Button 
         name="AC"
         char="A/C"
