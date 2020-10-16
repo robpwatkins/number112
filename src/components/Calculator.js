@@ -19,9 +19,9 @@ const Calculator = () => {
 
   const equals = () => {
     if (operator === '+') setNums([nums.reduce((a, b) => a + b)]);
-    else if (operator === '-') setNums([nums.reduce((a, b) => a - b)]);
-    else if (operator === 'x') setNums([nums.reduce((a, b) => a * b)]);
-    else setNums([nums.reduce((a, b) => a / b)]);
+    // else if (operator === '-') setNums([nums.reduce((a, b) => a - b)]);
+    // else if (operator === 'x') setNums([nums.reduce((a, b) => a * b)]);
+    // else setNums([nums.reduce((a, b) => a / b)]);
   }
 
   const handleClick = event => {
