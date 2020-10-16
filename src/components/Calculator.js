@@ -23,6 +23,10 @@ const Calculator = () => {
     
   }
 
+  const equals = () => {
+    operator === '+' && nums.reduce((a, b) => a + b);
+  }
+
   const handleClick = event => {
     const char = event.currentTarget.innerHTML;
     if (char === 'A/C') clear();
