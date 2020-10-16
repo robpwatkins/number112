@@ -19,12 +19,9 @@ const Calculator = () => {
     console.log('plusOrMinus');
   }
 
-  const handleOperatorClick = () => {
-    
-  }
-
   const equals = () => {
-    operator === '+' && nums.reduce((a, b) => a + b);
+    operator === '+' && setNums(nums.reduce((a, b) => a + b));
+    setCurrentTotal(nums);
   }
 
   const handleClick = event => {
@@ -37,7 +34,10 @@ const Calculator = () => {
         setNums([newNums]);
         setCurrentTotal(newNums);
       } else setNums([...nums, Number(char)]);
-    } else setOperator(char);
+    } else {
+      setOperator(char);
+      equals();
+    }
   }
 
   console.log(nums);
