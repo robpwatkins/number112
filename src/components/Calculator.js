@@ -29,10 +29,10 @@ const Calculator = () => {
     else if (char === '±') plusOrMinus();
     else if (!isNaN(char)) {
       if (!operator) {
-        let newNums = nums + Number(char);
+        let newNums = Number(nums + Number(char));
         setNums([newNums]);
         setCurrentTotal(newNums);
-      } 
+      } else setNums([...nums, Number(char)]);
     } else setOperator(char);
   }
 
