@@ -5,6 +5,7 @@ import Button from './Button';
 const Calculator = () => {
   const [nums, setNums] = useState([]);
   const [operator, setOperator] = useState(null);
+  const [currentNum, setCurrentNum] = useState([]);
 
   const clear = () => {
     setNums([]);
@@ -28,17 +29,16 @@ const Calculator = () => {
     if (char === 'A/C') clear();
     else if (char === '±') plusOrMinus();
     else if (!isNaN(char)) {
-      if (!operator) {
-        let newNums = Number(nums + Number(char));
-        setNums([newNums]);
-      } else setNums([...nums, Number(char)]);
+      // if (!operator) {
+        setCurrentNum([Number(currentNum + Number(char))]);
+      // } else setNums([...nums, Number(char)]);
     } else {
       setOperator(char);
       equals();
     }
   }
 
-  console.log(nums);
+  console.log(currentNum);
   return (
     <div className="calculator">
       <Screen num={nums[nums.length - 1]} />
