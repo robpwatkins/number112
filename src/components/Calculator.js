@@ -11,6 +11,7 @@ const Calculator = () => {
   const clear = () => {
     setNums([]);
     setCurrentTotal(null);
+    setOperator(null);
     console.log('clear');
   }
 
@@ -18,17 +19,24 @@ const Calculator = () => {
     console.log('plusOrMinus');
   }
 
+  const handleOperatorClick = () => {
+    
+  }
+
   const handleClick = event => {
     const char = event.currentTarget.innerHTML;
     if (char === 'A/C') clear();
     else if (char === '±') plusOrMinus();
     else if (!isNaN(char)) {
-      if (!operator) setNums([nums + Number(char)]);
-      !currentTotal && setCurrentTotal(Number(char));
+      if (!operator) {
+        let newNums = nums + Number(char);
+        setNums([newNums]);
+        setCurrentTotal(newNums);
+      } 
     } else setOperator(char);
   }
 
-  console.log(nums.join(''));
+  console.log(nums);
   return (
     <div className="calculator">
       <Screen total={currentTotal} />
