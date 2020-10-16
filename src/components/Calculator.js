@@ -3,7 +3,6 @@ import Screen from './Screen';
 import Button from './Button';
 
 const Calculator = () => {
-  // const [clicked, setClicked] = useState(null);
   const [nums, setNums] = useState([]);
   const [operator, setOperator] = useState(null);
 
@@ -18,12 +17,10 @@ const Calculator = () => {
   }
 
   const equals = () => {
-    let newNums;
-    if (operator === '+') newNums = nums.reduce((a, b) => a + b);
-    else if (operator === '-') newNums = nums.reduce((a, b) => a - b);
-    else if (operator === 'x') newNums = nums.reduce((a, b) => a * b);
-    else newNums = nums.reduce((a, b) => a / b);
-    setNums([newNums]);
+    if (operator === '+') setNums([nums.reduce((a, b) => a + b)]);
+    else if (operator === '-') setNums([nums.reduce((a, b) => a - b)]);
+    else if (operator === 'x') setNums([nums.reduce((a, b) => a * b)]);
+    else setNums([nums.reduce((a, b) => a / b)]);
   }
 
   const handleClick = event => {
