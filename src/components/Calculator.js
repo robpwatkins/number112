@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Screen from './Screen';
 import Button from './Button';
 
 const Calculator = () => {
-  const [clicked, setClicked] = useState(null);
+  // const [clicked, setClicked] = useState(null);
   const [nums, setNums] = useState([]);
   const [operator, setOperator] = useState(null);
   const [currentTotal, setCurrentTotal] = useState(null);
@@ -23,7 +23,7 @@ const Calculator = () => {
     if (char === 'A/C') clear();
     else if (char === '±') plusOrMinus();
     else if (!isNaN(char)) {
-      setNums([...nums, Number(char)]);
+      if (!operator) setNums([nums + Number(char)]);
       !currentTotal && setCurrentTotal(Number(char));
     } else setOperator(char);
   }
