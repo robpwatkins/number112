@@ -20,8 +20,12 @@ const Calculator = () => {
   }
 
   const equals = () => {
-    operator === '+' && setNums(nums.reduce((a, b) => a + b));
-    setCurrentTotal(nums);
+    if (operator === '+') {
+      let newNums = nums.reduce((a, b) => a + b);
+      console.log(newNums);
+      setNums(newNums);
+      setCurrentTotal(newNums);
+    } 
   }
 
   const handleClick = event => {
