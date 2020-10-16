@@ -33,12 +33,14 @@ const Calculator = () => {
         setCurrentNum([Number(currentNum + Number(char))]);
       // } else setNums([...nums, Number(char)]);
     } else {
-      setOperator(char);
-      equals();
+      let tempNums = [...nums, currentNum];
+      console.log(tempNums.reduce((a, b) => a + b));
+      // setOperator(char);
+      // equals();
     }
   }
 
-  console.log(currentNum);
+  console.log(nums);
   return (
     <div className="calculator">
       <Screen num={nums[nums.length - 1]} />
