@@ -6,7 +6,6 @@ const Calculator = () => {
   const [nums, setNums] = useState([]);
   const [operator, setOperator] = useState(null);
   const [currentNum, setCurrentNum] = useState(null);
-  const [screeNums, setScreenNums] = useState(null);
 
   const clear = () => {
     setNums([]);
@@ -27,7 +26,6 @@ const Calculator = () => {
     else if (operator === 'x') tempNums = tempNums.reduce((a, b) => a * b);
     else tempNums = tempNums.reduce((a, b) => a / b);
     setNums([tempNums]);
-    setScreenNums(tempNums);
     setCurrentNum(null);
   }
 
@@ -38,11 +36,9 @@ const Calculator = () => {
     else if (!isNaN(char)) {
       if (!currentNum) {
         setCurrentNum(char);
-        setScreenNums(char);
       }
       else {
         setCurrentNum(currentNum + char);
-        setScreenNums(currentNum + char);
       }
     }
     else {
@@ -51,27 +47,10 @@ const Calculator = () => {
     }
   }
 
-  // const handleClick = event => {
-  //   const char = event.currentTarget.innerHTML;
-  //   if (char === 'A/C') clear();
-  //   else if (char === '±') plusOrMinus();
-  //   else if (!isNaN(char)) {
-  //     if (!operator) {
-  //       if (!currentNum) setCurrentNum(char);
-  //       else setCurrentNum(currentNum + char);
-  //     } else {
-  //       setNums([Number(currentNum)]);
-  //     }
-  //   } else {
-  //     setOperator(char);
-  //     equals();
-  //   }
-  // }
-
   console.log(currentNum, nums);
   return (
     <div className="calculator">
-      <Screen num={screeNums} />
+      <Screen />
       <Button 
         name="AC"
         char="A/C"
