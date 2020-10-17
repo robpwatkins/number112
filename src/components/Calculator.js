@@ -18,9 +18,7 @@ const Calculator = () => {
     console.log('plusOrMinus');
   }
 
-  const equals = () => {
-    console.log(operator);
-    let tempNums = [...nums, Number(currentNum)]
+  const runOperator = tempNums => {
     if (operator === '+') tempNums = tempNums.reduce((a, b) => a + b);
     else if (operator === '-') tempNums = tempNums.reduce((a, b) => a - b);
     else if (operator === 'x') tempNums = tempNums.reduce((a, b) => a * b);
@@ -29,25 +27,29 @@ const Calculator = () => {
     setCurrentNum(null);
   }
 
+  const equals = () => {
+    let tempNums = [...nums, Number(currentNum)]
+    runOperator(tempNums);
+  }
+
   const handleClick = event => {
     const char = event.currentTarget.innerHTML;
     if (char === 'A/C') clear();
     else if (char === '±') plusOrMinus();
     else if (!isNaN(char)) {
-      if (!currentNum) {
-        setCurrentNum(char);
-      }
-      else {
-        setCurrentNum(currentNum + char);
-      }
+      if (!currentNum) setCurrentNum(char);
+      else setCurrentNum(currentNum + char);
     }
     else {
-      setOperator(char);
-      equals();
+      if (operator === '=') equals();
+      else {
+        setOperator(char);
+        equals();
+      }
     }
   }
 
-  console.log(currentNum, nums);
+  console.log(currentNum, nums, operator);
   return (
     <div className="calculator">
       <Screen />
@@ -146,7 +148,7 @@ const Calculator = () => {
       <Button
         name="operator"
         char="="
-        handleClick={equals}
+        handleClick={handleClick}
       />
     </div>
   )
