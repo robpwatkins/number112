@@ -20,13 +20,14 @@ const Calculator = () => {
   }
 
   const equals = () => {
+    console.log(operator);
     let tempNums = [...nums, Number(currentNum)]
     if (operator === '+') tempNums = tempNums.reduce((a, b) => a + b);
     else if (operator === '-') tempNums = tempNums.reduce((a, b) => a - b);
     else if (operator === 'x') tempNums = tempNums.reduce((a, b) => a * b);
-    // else tempNums = tempNums.reduce((a, b) => a / b);
+    else tempNums = tempNums.reduce((a, b) => a / b);
     setNums([tempNums]);
-    // setScreenNums(tempNums);
+    setScreenNums(tempNums);
     setCurrentNum(null);
   }
 
@@ -166,7 +167,7 @@ const Calculator = () => {
       <Button
         name="operator"
         char="="
-        handleClick={handleClick}
+        handleClick={equals}
       />
     </div>
   )
