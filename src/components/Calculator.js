@@ -29,7 +29,8 @@ const Calculator = () => {
 
   const equals = () => {
     let tempNums = [...nums, Number(currentNum)]
-    runOperator(tempNums);
+    if (operator === '=') console.log(tempNums, currentNum);
+    else runOperator(tempNums);
   }
 
   const handleClick = event => {
